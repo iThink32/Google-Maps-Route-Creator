@@ -39,7 +39,7 @@ enum MapError:Error{
     }
 }
 
-class RouteCreater {
+final class RouteCreater {
     
     class func navigationPath(dictPathInformation:[String:Any]) -> GMSPath?
     {
