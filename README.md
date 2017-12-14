@@ -2,7 +2,12 @@
 A Class that creates a GMSPath that can be used to display a path between A and B
 
 VERY IMP:-
-DO NOT FORGET TO ADD YOUR API KEY IN FETCHROUTEINFORMATION() IN ROUTECREATOR!
+DO NOT FORGET TO ADD YOUR API KEY IN
+
+```
+class func fetchRouteInformation(from:CLLocationCoordinate2D,to:CLLocationCoordinate2D,successCallBack:@escaping ([String:Any]) -> Void,failureCallBack:@escaping Typealias.MapCallBack)
+```
+ PRESENT IN THE RouteCreator class!
 
 Usage:-
 
