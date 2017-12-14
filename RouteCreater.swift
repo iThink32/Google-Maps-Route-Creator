@@ -9,6 +9,36 @@
 import UIKit
 import GoogleMaps
 
+enum Typealias
+{
+    typealias defaultCallBack = () -> Void
+    typealias MapCallBack = (MapError?) -> Void
+}
+
+enum MapError:Error{
+    case mapCreationFailure
+    case dataSourceMissing
+    case pathDrawFailed
+    case pathFetchFailed
+    
+    func description() -> String
+    {
+        var strToReturn = String()
+        switch self
+        {
+        case MapError.mapCreationFailure:
+            strToReturn = "Failed to create a map"
+        case MapError.dataSourceMissing:
+            strToReturn = "Latitide and Longitude not specified"
+        case MapError.pathDrawFailed:
+            strToReturn = "Failed to draw route"
+        case MapError.pathFetchFailed:
+            strToReturn = "Failed to fetch route information"
+        }
+        return strToReturn
+    }
+}
+
 class RouteCreater {
     
     class func navigationPath(dictPathInformation:[String:Any]) -> GMSPath?
