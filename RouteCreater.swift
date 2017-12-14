@@ -59,7 +59,7 @@ class RouteCreater {
     {
         let origin = "\(from.latitude),\(from.longitude)"
         let dest = "\(to.latitude),\(to.longitude)"
-        let strURL = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(dest)&mode=driving&key=AIzaSyD5Ha6VYMRwrHhVZEH_Nlg_fns-MEc9N7w"
+        let strURL = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(dest)&mode=driving&key=\(ENTER_YOUR_KEY_HERE)"
         guard let url = URL(string: strURL) else{
             return
         }
