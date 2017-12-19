@@ -1,5 +1,5 @@
 //
-//  Utilities.swift
+//  GeoCoder.swift
 //  AuthDemo
 //
 //  Created by N A Shashank on 12/5/17.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class Utilities
+class GeoCoder
 {  
    //APPLE PROVIDED GEOCODER
    class func locationFromString(str:String,callBack:@escaping (CLLocationCoordinate2D) -> Void,failureCallBack:@escaping ()->Void)
