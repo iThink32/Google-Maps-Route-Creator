@@ -37,4 +37,4 @@ Usage:-
         
 ```
 
-If you want to convert User Defined strings into Lat - Longs use the Geoders in Utilities, i have written both the one which which apple provides as well as which google provides , choose one of them.
+If you want to convert User Defined strings into Lat - Longs use the Geo-coders in Utilities, i have written both the one which which apple provides as well as which google provides , choose one of them.
