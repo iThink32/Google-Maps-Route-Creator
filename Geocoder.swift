@@ -10,19 +10,8 @@ import UIKit
 import CoreLocation
 
 class Utilities
-{
-    class func showAlert(message:String,controller:UIViewController,completion:( ()->Void )?)
-    {
-        let alertController = UIAlertController(title: "Hey!", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        
-        let alertAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(action) -> Void in
-            completion?()
-        })
-        alertController.addAction(alertAction)
-        controller.present(alertController, animated: true, completion: nil)
-    }
-    
-    class func locationFromString(str:String,callBack:@escaping (CLLocationCoordinate2D) -> Void,failureCallBack:@escaping ()->Void)
+{    
+   class func locationFromString(str:String,callBack:@escaping (CLLocationCoordinate2D) -> Void,failureCallBack:@escaping ()->Void)
     {
         let geoCoder = CLGeocoder()
         geoCoder.geocodeAddressString(str) { (arrPlacemarks, error) in
