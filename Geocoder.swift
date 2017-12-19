@@ -10,7 +10,8 @@ import UIKit
 import CoreLocation
 
 class Utilities
-{    
+{  
+   //APPLE PROVIDED GEOCODER
    class func locationFromString(str:String,callBack:@escaping (CLLocationCoordinate2D) -> Void,failureCallBack:@escaping ()->Void)
     {
         let geoCoder = CLGeocoder()
@@ -27,13 +28,13 @@ class Utilities
             callBack(location.coordinate)
         }
     }
-    
+    //GOOGLE PROVIDED GEOCODER
     class func geocodeAddress(address:String,successCallBack:@escaping (CLLocationCoordinate2D) -> Void,failureCallBack:@escaping ()->Void)
     {
         guard let encodedAddress = address.addingPercentEncoding(withAllowedCharacters: CharacterSet.alphanumerics) else{
             return
         }
-        let strUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=\(encodedAddress)&key=AIzaSyD5Ha6VYMRwrHhVZEH_Nlg_fns-MEc9N7w"
+        let strUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=\(encodedAddress)&key=ADD_UR_API_KEY_HERE"
         guard let url = URL(string:strUrl) else{
             return
         }
