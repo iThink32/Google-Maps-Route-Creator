@@ -99,7 +99,7 @@ class RouteCreater {
             baseURL = baseURL + waypointString
         }
         let transitMode = "&mode=driving"
-        let key = "&key=AIzaSyD5Ha6VYMRwrHhVZEH_Nlg_fns-MEc9N7w"
+        let key = "&key=ADD_UR_API_KEY_HERE"
         baseURL = baseURL + transitMode + key
         guard let url = URL(string: baseURL) else{
             return
