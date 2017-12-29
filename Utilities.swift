@@ -10,12 +10,6 @@ import UIKit
 import CoreLocation
 
 final class Utilities {
-
-    class func logoHeight(viewFrame:CGRect) -> CGFloat {
-        let imgAspectRatio = 280.0 / 160.0
-        let imgWidth = viewFrame.width - 60
-        return imgWidth * CGFloat(1.0/imgAspectRatio)
-    }
     
     class func modelFromUserStringsFor(strSourceLocation:String,strDestination:String,waypoints:[String]?,successCallBack:@escaping (MapModel)-> Void,failureCallBack:@escaping ()-> Void) {
         var sourceLocation = CLLocationCoordinate2D()
@@ -60,23 +54,6 @@ final class Utilities {
             }
             successCallBack(mapModel)
         }
-    }
-    
-    class func encodeToData(value:PathInformationModel) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: value)
-        UserDefaults.standard.set(data, forKey: "path")
-    }
-    
-    class func archiveMapModel(data:[String:Any]) {
-        UserDefaults.standard.set(data, forKey: "navigationPath")
-        UserDefaults.standard.synchronize()
-    }
-    
-    class func unarchiveMapModel() -> [String:Any]? {
-        guard let object = UserDefaults.standard.object(forKey: "navigationPath") as? [String:Any] else{
-            return nil
-        }
-        return object
     }
 
 }
