@@ -13,26 +13,15 @@ Usage:-
 
 ```
 
-        RouteCreater.fetchRouteInformation(from: unwrappedModel.sourceLocation, to: unwrappedModel.destinationLocation,waypoints: unwrappedModel.waypoints,successCallBack: { [weak self](dictReceived) in
-            
-            //unwrapped path contains an array of legs each leg corresponds to the the path to each waypoint , each leg 
-            //has a lot of information that you can use.Ive demonstrated the use of the first leg.You actually have to
-            //use the waypointOrder value in the pathInformation object,reorder the legs acc to it and display it in your
-            //map for turn by turn navigation.When i implement it i will add it here.
- 
-            guard let unwrappedSelf = self, let unwrappedPath = RouteCreater.navigationPath(dictPathInformation: dictReceived),unwrappedPath.arrLegs.count > 0,let firstLeg = unwrappedPath.arrLegs.first else{
-                callBack(MapError.pathDrawFailed)
-                return
+        Utilities.modelFromUserStringsFor(strSourceLocation: "2635 NE Broadway Street, 97232 (Cha Cha Cha! Mexican Taqueria)", strDestination: "Powellhurst - Gilbert Portland, OR, USA", waypoints: ["3008 NE Broadway Street, 97232","3210 NE Broadway Street, 97232","3017 NE Tillamook Street, 97212"], successCallBack: {[weak self] (mapModel) in
+            self?.mapManager.setupMap(mapModel: mapModel) { (mapView, error) in
+                guard error == nil else{
+                    return
+                }
+                self?.view = mapView
             }
-            DispatchQueue.main.async {
-                unwrappedSelf.currentPolyline = GMSPolyline(path:firstLeg.path)
-                unwrappedSelf.currentPolyline?.strokeWidth = 2.0
-                unwrappedSelf.currentPolyline?.strokeColor = UIColor.orange
-                unwrappedSelf.currentPolyline?.map = unwrappedSelf.mapView
-                callBack(nil)
-            }
-            },failureCallBack: {(error) -> Void in
-                callBack(error)
+        }, failureCallBack: {
+            Logger.printValue("something went wrong")
         })
         
 ```
